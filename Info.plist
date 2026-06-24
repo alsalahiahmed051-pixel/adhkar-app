@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  ADD the keys below into your existing ios/Runner/Info.plist
+  (inside the root <dict> tag).
+  This file shows the full set of required keys for أذكاري.
+-->
+<plist version="1.0">
+<dict>
+
+    <!-- App display name shown under the icon -->
+    <key>CFBundleDisplayName</key>
+    <string>أذكاري</string>
+
+    <!-- ── Microphone (voice dhikr) ── -->
+    <key>NSMicrophoneUsageDescription</key>
+    <string>يحتاج التطبيق للميكروفون لميزة «اذكر الله بصوتك» — يعدّ تسبيحاتك تلقائيًا بمجرد أن تنطقها.</string>
+
+    <!-- ── Speech recognition ── -->
+    <key>NSSpeechRecognitionUsageDescription</key>
+    <string>يستخدم التطبيق التعرّف الصوتي لاحتساب عدد الأذكار التي تقولها بصوتك.</string>
+
+    <!-- ── Photo library (uploading images / files) ── -->
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>يتيح لك التطبيق رفع صورة أو ملف PDF لإضافته كمحتوى ذكر.</string>
+
+    <!-- ── Local notifications ── -->
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>fetch</string>
+        <string>remote-notification</string>
+    </array>
+
+    <!-- ── URL schemes for WhatsApp share ── -->
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>whatsapp</string>
+        <string>https</string>
+    </array>
+
+    <!-- Keep existing keys such as CFBundleName, NSFaceIDUsageDescription, etc. -->
+
+</dict>
+</plist>

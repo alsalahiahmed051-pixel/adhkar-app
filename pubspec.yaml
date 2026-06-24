@@ -1,0 +1,46 @@
+name: adhkar_app
+description: "تطبيق أذكاري — أذكار، مسبحة تسبيح، ذكر صوتي، ومشاركة"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+
+  # state management
+  provider: ^6.1.2
+  rxdart: ^0.27.7
+
+  # storage
+  shared_preferences: ^2.2.3
+  cloud_firestore: ^5.0.0
+  firebase_core: ^3.0.0
+  firebase_storage: ^12.0.0
+
+  # ui
+  google_fonts: ^6.2.1
+
+  # features
+  share_plus: ^9.0.0
+  url_launcher: ^6.2.6
+  speech_to_text: ^7.0.0
+  audioplayers: ^6.0.0
+  file_picker: ^8.0.0
+  image_picker: ^1.1.2
+  flutter_local_notifications: ^17.2.1
+  timezone: ^0.9.4
+  permission_handler: ^11.3.1
+  uuid: ^4.4.0
+  intl: ^0.19.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true

@@ -1,0 +1,37 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── Community (approved) items — readable by all, not writable directly ──
+    match /community_items/{docId} {
+      allow read: if true;
+      // only the backend (Cloud Functions) or admin SDK should write here
+      // client writes go to pending_items and are promoted by the admin
+      allow write: if false;
+    }
+
+    // ── Pending items — anyone can submit, nobody can read/edit others' ──
+    match /pending_items/{docId} {
+      allow read: if true;          // needed so share-code lookup works immediately
+      allow create: if true;        // any user can submit
+      allow update: if
+        // only allow incrementing/resetting the counter field
+        request.resource.data.diff(resource.data).affectedKeys()
+          .hasOnly(['count']);
+      allow delete: if false;       // admin SDK / Cloud Functions only
+    }
+
+    // ── Pending categories — anyone can propose, public read for the admin panel ──
+    match /pending_categories/{docId} {
+      allow read: if true;
+      allow create: if true;
+      allow delete: if false;
+    }
+
+    // ── Approved custom categories — readable by all, written by admin SDK only ──
+    match /custom_categories/{docId} {
+      allow read: if true;
+      allow write: if false;
+    }
+  }
+}
